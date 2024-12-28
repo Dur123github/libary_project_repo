@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #62cff4, #2c67f2);;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background: white;
+            padding: 43px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 309px;
+            text-align: center;
+            border: 2px solid black;
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-container input,
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            border: 2px solid black;
+        }
+
+        .form-container select {
+            display: flex;
+            margin-right: 2px;
+            padding: 10px;
+            width: 329px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            border: 2px solid black;
+        }
+
+        .form-container button {
+            background: #ccd4cd;
+            color: rgb(5, 5, 5);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .form-container button:hover {
+            background: linear-gradient(to right, #62cff4, #2c67f2);;;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Login </h2>
+
+        <form method="POST" id="addUserForm">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <select id="role" name="role" required>
+                <option value="" disabled selected>Select Role</option>
+                <option value="user">User</option>
+                <option value="librarian">Librarian</option>
+            </select>
+            <button type="submit">Login</button>
+        </form>
+        <p class ="error-message" id ="errorMessage"></p>
+        <p style="margin-top: 20px;">Don't have an account?
+            <a href="{{ url_for('register') }}">Register here</a>
+        </p>
+    </div>
+
+    <script>
+        // JavaScript to handle form submission
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent traditional form submission
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const role = document.getElementById('role').value;
+
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password, role }),
+                });
+                
+                const data = await response.json();
+                if (response.ok) {
+                    alert(data.message); // Show success message
+                    window.location.href = '/dashboard'; // Redirect to dashboard
+                } else {
+                    errorMessage.textContent = data.message; // Show error message
+                }
+            } catch (error) {
+                errorMessage.textContent = "An error occurred. Please try again.";
+                errorMessage.textContent="username and password is not correct.";
+
+            }
+
+        });

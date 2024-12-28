@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url("../static/images/login.jpg") no-repeat center center fixed;
+            background-size: cover;
+            /* Ensures the background image covers the entire viewport */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            filter: none;
+            background-attachment: fixed;
+            background-color: #848da3;
+            animation: growBackground 6s infinite alternate;
+            /* Makes the body take the full height of the viewport */
+        }
+
+        @keyframes growBackground {
+            0% {
+                background-size: 100%;
+            }
+
+            100% {
+                background-size: 105%;
+            }
+        }
+
+        .login-container {
+            padding: 30px;
+            border-radius: 13px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #ccc;
+            background-color: rgba(0, 0, 0, 0.6);
+            /* Slightly darker background for better contrast */
+        }
+
+        .login-container img {
+            height: 91px;
+            width: 227px;
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            border-radius: 55px;
+            background-color: black;
+        }
+
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 38px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 2px solid black;
+        }
+
+        .Login-button {
+            width: 40%;
+            padding: 10px;
+            background-color: #cd1fbf;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            letter-spacing: 2px;
+        }
+
+        .Login-button:hover {
+            background-color: #0056b3;
+        }
+
+        .background-box {
+            background-color: lightblue;
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            display: block;
+        }
+
+        .background-box:hover {
+            width: 101px;
+            /* Increase by 1 pixel on hover */
+            height: 101px;
+        }
+        .input-group select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 2px solid black;
+        }
+        .input-group option {
+            color:rgb(87, 4, 4);
+
+        }
+    
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <img src="../static/images/logo1.jpg" alt="Logo" />
+        <h2>Login</h2>
+        <form method="POST" action="{{ url_for('login1') }}">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required />
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required />
+            </div>
+            
+            <button type="submit" class="Login-button">Login</button>
+        </form>
+
+    </div>
+</body>
+
+</html>

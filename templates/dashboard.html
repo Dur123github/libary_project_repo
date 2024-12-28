@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+
+
+        .container {
+            max-width: 100%;
+            background: linear-gradient(to right, #b7c5c9, #354a79);
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+            position: fixed;
+            top: -20px;
+            width: 98%;
+            height: 98%;
+            left: 0;
+            z-index: 1;
+        }
+
+
+        /* .container1 {
+            max-width: 100%;
+            background: linear-gradient(#090a0a, #c70e39);
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            position: fixed;
+            right: 0px;
+            top: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 54%;
+            height: 100%
+        } */
+
+
+        .container img {
+            display: flex;
+            justify-self: center;
+            align-items: center;
+            width: 107%;
+            height: 185px;
+            border-radius: 2px;
+            margin-top: 0px;
+            margin-bottom: 2px;
+            display: block;
+            flex-direction: column;
+            margin-right: 1px;
+        }
+
+        .overlay-text {
+            position: absolute;
+            top: 20%;
+            left: 47%;
+            transform: translate(-52%, -56%);
+            color: white;
+            font-size: 31px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            text-align: center;
+        }
+
+
+        h2 {
+            text-align: center;
+            color: white;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin: 22px;
+        }
+
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            font-size: 16px;
+            width: 48%;
+            border: 2px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+
+        .btn-add {
+            background-color: #4CAF50;
+            color: black;
+            padding: 15px;
+            font-size: 16px;
+            width: 19%;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            border: 2px solid black;
+
+        }
+
+        .btn-add:hover {
+            background-color: white;
+
+        }
+
+        .btn-borrow {
+            background-color: #664278;
+            color: rgb(7, 7, 7);
+            padding: 15px;
+            font-size: 16px;
+            width: 19%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            border: 2px solid black;
+
+        }
+
+        .btn-borrow:hover {
+            background-color: white;
+        }
+
+        .btn-return {
+            background-color: #adaf4c;
+            color: rgb(19, 18, 18);
+            padding: 15px;
+            font-size: 16px;
+            width: 19%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid black;
+
+        }
+
+        .btn-return:hover {
+            background-color: white;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .login {
+            background-color: #1e21e4;
+            color: rgb(7, 7, 7);
+            padding: 15px;
+            font-size: 16px;
+            width: 19%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            border: 2px solid black;
+            
+        }
+
+        .btn-return:hover {
+            background-color: white;
+        }
+
+        .login:hover {
+            background-color: white;
+        }
+
+        .btn-container {
+            text-align: center;
+            color: white;
+        }
+
+        .btn-container a {
+            text-align: center;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <img src="../static/images/footer_img.jpg" alt="">
+        <div class="overlay-text">Welcome to Dashboard</div>
+        <p>
+        <h2>Please select your role and what you would like to do:</h2>
+        </p>
+        <div class="container1">
+
+        </div>
+
+        <form action="#" method="POST">
+            <div class="btn-group">
+                <button type="submit" name="action" value="add" class="btn-add" onclick=>Add</button>
+                <button type="submit" name="action" value="borrow" class="btn-borrow">Borrow</button>
+            </div>
+
+            <div class="btn-group">
+                <button type="submit" name="action" value="return" class="btn-return">Return</button>
+                <button type="button" class="btn login" onclick="goTologin()">Logout</button>
+            </div>
+        </form>
+
+      
+    </div>
+    </div>
+    <script>
+
+        // Redirect to the register page
+        function goTologin() {
+            window.location.href = "{{ url_for('logout') }}";
+        }
+
+        function showForm() {
+            document.getElementById('Addbook').style.display = 'block';
+        }
+
+        function hideForm() {
+            document.getElementById('Addbook').style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>

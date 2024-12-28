@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Containers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background:linear-gradient(#090a0a, #c70e39);;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            width: 98%;
+            max-width: 1293px;
+        
+        }
+
+
+        .box {
+            /* background-color: #007BFF; */
+            color:white;
+            padding: 50px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 1.2em;
+            height: 506px;
+            border: 3px solid white;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #ebe2e2;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 49%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .form-group button {
+            width: 50%;
+            padding: 10px;
+            background-color:black;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background: linear-gradient(to right, #62cff4, #2c67f2);
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <form action="/addbook" methods="POST">
+                <div class="form-group">
+                    <h2>Adding book to the database</h2>
+                    <label for="title">Book Title</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="author" required>
+                </div>
+                <div class="form-group">
+                    <label for="Edition">Edition</label>
+                    <input type="text" id="Edition" name="edition" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Add Book</button>
+                </div>
+            </form>
+        </div>
+        <div class="box">Container 2</div>
+        <div class="box">Container 3</div>
+        <div class="box">Container 4</div>
+    </div>
+</body>
+
+</html>
