@@ -1,0 +1,48 @@
+
+
+
+.main-content {
+    flex: 2;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.form-container {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    display: none; /* Initially hidden */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #354a79;
+}
+
+.add-button, .submit-button, .cancel-button {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #0886a5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.add-button:hover, .submit-button:hover, .cancel-button:hover {
+    background-color: #06697e;
+}
+
+.cancel-button {
+    background-color: #d9534f;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
